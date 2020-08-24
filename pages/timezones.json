@@ -1,0 +1,219 @@
+[
+  {
+    "UTC": "14",
+    "areas": "Christmas Island Kiribati",
+    "zone": "LINT",
+    "city": "Kiritimati"
+  },
+  {
+    "UTC": "13",
+    "areas": "Tonga and 3 more",
+    "zone": "TOT",
+    "city": "Nukualofa"
+  },
+  {
+    "UTC": "12:45",
+    "areas": "Chatham Islands New Zealand",
+    "zone": "CHAST",
+    "city": "Chatham Islands"
+  },
+  {
+    "UTC": "12",
+    "areas": "New Zealand with exceptions 9 more",
+    "zone": "ANAT",
+    "city": "Anadyr"
+  },
+  {
+    "UTC": "11",
+    "areas": "small region of Russia and 6 more",
+    "zone": "SBT",
+    "city": "Honiara"
+  },
+  {
+    "UTC": "10:30",
+    "areas": "Lord Howe Island Australia   ",
+    "zone": "LHST",
+    "city": "Lord Howe Island"
+  },
+  {
+    "UTC": "10",
+    "areas": "much of Australia and 6 more",
+    "zone": "AEST",
+    "city": "Melbourne"
+  },
+  {
+    "UTC": "9:30",
+    "areas": "some regions of Australia",
+    "zone": "ACST",
+    "city": "Adelaide"
+  },
+  {
+    "UTC": "9",
+    "areas": "Japan, South Korea and 5 more ",
+    "zone": "JST",
+    "city": "Tokyo"
+  },
+  {
+    "UTC": "8:45",
+    "areas": "Western Australia Australia   ",
+    "zone": "ACWST",
+    "city": "Eucla"
+  },
+  {
+    "UTC": "8",
+    "areas": "China, Philippines and 11 more    ",
+    "zone": "CST",
+    "city": "Beijing"
+  },
+  {
+    "UTC": "7",
+    "areas": "much of Indonesia, Thailand  7 more",
+    "zone": "WIB",
+    "city": "Jakarta"
+  },
+  {
+    "UTC": "6:30",
+    "areas": "Myanmar and Cocos Islands ",
+    "zone": "MMT",
+    "city": "Yangon"
+  },
+  {
+    "UTC": "6",
+    "areas": "Bangladesh and 6 more",
+    "zone": "BST",
+    "city": "Dhaka"
+  },
+  {
+    "UTC": "5:45",
+    "areas": "Nepal ",
+    "zone": "NPT",
+    "city": "Kathmandu"
+  },
+  {
+    "UTC": "5:30",
+    "areas": "India and Sri Lanka",
+    "zone": "IST",
+    "city": "New Delhi"
+  },
+  {
+    "UTC": "5",
+    "areas": "Pakistan and 8 more",
+    "zone": "UZT",
+    "city": "Tashkent"
+  },
+  {
+    "UTC": "4:30",
+    "areas": "Iran and Afghanistan",
+    "zone": "IRDT",
+    "city": "Tehran"
+  },
+  {
+    "UTC": "4",
+    "areas": "Azerbaijan and 8 more",
+    "zone": "GST",
+    "city": "Dubai"
+  },
+  {
+    "UTC": "3",
+    "areas": "Greece and 37 more   ",
+    "zone": "MSK",
+    "city": "Moscow"
+  },
+  {
+    "UTC": "2",
+    "areas": "Germany and 47 more",
+    "zone": "CEST",
+    "city": "Brussels"
+  },
+  {
+    "UTC": "1",
+    "areas": "United Kingdom and 22 more  ",
+    "zone": "BST",
+    "city": "London"
+  },
+  {
+    "UTC": "0",
+    "areas": "Iceland and 17 more",
+    "zone": "GMT",
+    "city": "Accra"
+  },
+  { "UTC": "-1", "areas": "Cabo Verde   ", "zone": "CVT", "city": "Praia" },
+  {
+    "UTC": "-2",
+    "areas": "most of Greenland and 3 more",
+    "zone": "WGST",
+    "city": "Nuuk"
+  },
+  {
+    "UTC": "-2:30",
+    "areas": "Newfoundland and Labrador Canada",
+    "zone": "NDT",
+    "city": "St. John's"
+  },
+  {
+    "UTC": "-3",
+    "areas": "most of Brazil, Argentina  9 more",
+    "zone": "ART",
+    "city": "Buenos Aires"
+  },
+  {
+    "UTC": "-4",
+    "areas": "regions of USA and 33 more    ",
+    "zone": "EDT",
+    "city": "New York"
+  },
+  {
+    "UTC": "-5",
+    "areas": "regions of USA and 9 more",
+    "zone": "CDT",
+    "city": "Mexic,o City"
+  },
+  {
+    "UTC": "-6",
+    "areas": "small region of USA and 10 more",
+    "zone": "CST",
+    "city": "Guatemal,a City"
+  },
+  {
+    "UTC": "-7",
+    "areas": "regions of USA and 2 more  ",
+    "zone": "PDT",
+    "city": "Los Angeles"
+  },
+  {
+    "UTC": "-8",
+    "areas": "Alaska USA and 2 more  ",
+    "zone": "AKDT",
+    "city": "Anchorage"
+  },
+  {
+    "UTC": "-9",
+    "areas": "Alaska USA regions    Polynesia ",
+    "zone": "HDT",
+    "city": "Adak"
+  },
+  {
+    "UTC": "-9:30",
+    "areas": "Marquesas Islands French Polynesia",
+    "zone": "MART",
+    "city": "Taiohae"
+  },
+  {
+    "UTC": "-10",
+    "areas": "Hawaii USA and 2 more",
+    "zone": "HST",
+    "city": "Honolulu"
+  },
+  {
+    "UTC": "-11",
+    "areas": "American Samoa and 2 more",
+    "zone": "NUT",
+    "city": "Alofi"
+  },
+  {
+    "UTC": "-12",
+    "areas": "much of US Minor Outlying Islands",
+    "zone": "AoE",
+    "city": "Baker Island"
+  }
+]
