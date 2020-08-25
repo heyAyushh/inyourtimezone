@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 // Check if a 24 Hour Clock time given is valid
 function checkTime(time) {
-  const isTime = /([01]?[0-9]|2[0-3]):[0-5][0-9]/;
+  const isTime = /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/;
 
   if (time && isTime.test(time)) {
     return true;
