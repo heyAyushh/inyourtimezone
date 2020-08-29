@@ -1,6 +1,7 @@
 import timezones from "./timezones.json";
 // Time zones divided by Defined by UTC Offset
 import { useRouter } from "next/router";
+import { Box, Card, Text, Heading, Flex, Link } from "rebass";
 
 // Check if a 24 Hour Clock time given is valid
 function checkTime(time) {
@@ -77,10 +78,30 @@ export default function Index() {
 
     if (requiredTimeInNumber && requiredTimeInNumber > 24) {
       requiredTimeInNumber -= 24;
+    } else if (requiredTimeInNumber && requiredTimeInNumber < 0) {
+      requiredTimeInNumber += 24;
+    }
+
+    //Check if Morning, Afternoon,Evening, night
+    // return Unslash image with url wrapped for styling
+    function maenURL(number) {
+      const preURL = "url(https://source.unsplash.com/1600x900/?";
+
+      if (number > 20 || number < 5) {
+        return preURL + "night)";
+      } else if (number > 5 && number < 10) {
+        return preURL + "morning)";
+      } else if (number > 10 && number < 16) {
+        return preURL + "afternoon)";
+      } else if (number > 16 && number < 20) {
+        return preURL + "evening)";
+      } else {
+        console.error("Time is not parseable");
+        return null;
+      }
     }
 
     // Cast it in String then
-
     const requiredTimeInString =
       String(Math.floor(requiredTimeInNumber)) +
       ":" +
@@ -90,26 +111,75 @@ export default function Index() {
         )
       );
 
+    console.log(`Given Time and Zone is ${time} + ${zone} `);
+    console.log(`Given time zone UTC is ${givenTimeZone.UTC} `);
+    console.log(`Given time zone Area is ${givenTimeZone.areas} `);
+    console.log(`Given time zone City is ${givenTimeZone.city} `);
+    console.log(`Local Time zone UTC is ${localTimeZone.UTC}`);
+    console.log(`Local Time zone Area is ${localTimeZone.areas}`);
+    console.log(`Local Time zone City is ${localTimeZone.city}`);
+    console.log(`Given Time zone in Number is ${givenTimeZoneinNumber}`);
+    console.log(`Local Time zone in Number is ${LocalTimeZoneinNumber}`);
+    console.log(
+      `Difference is ${givenTimeZoneinNumber - LocalTimeZoneinNumber}`
+    );
+
     return (
-      <div>
-        Given Time and Zone is {time} + {zone} <br />
-        Given time zone UTC is {givenTimeZone.UTC} <br />
-        Given time zone Area is {givenTimeZone.areas} <br />
-        Given time zone City is {givenTimeZone.city} <br />
-        <br />
-        <br />
-        Local Time zone UTC is {localTimeZone.UTC}
-        <br />
-        Local Time zone Area is {localTimeZone.areas} <br />
-        Local Time zone City is {localTimeZone.city} <br />
-        <br />
-        <br />
-        Given Time zone in Number is {givenTimeZoneinNumber} <br />
-        Local Time zone in Number is {LocalTimeZoneinNumber} <br />
-        Difference is {givenTimeZoneinNumber - LocalTimeZoneinNumber} <br />
-        <br />
-        Given time in Local Time will be {requiredTimeInString}
-      </div>
+      <Flex>
+        <Box
+          height={[800, 500]}
+          p={[4, 6]}
+          sx={{
+            backgroundImage: maenURL(requiredTimeInNumber),
+            width: ["100%", "70%"],
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            borderRadius: 2,
+            color: "white",
+          }}
+        >
+          <Card my={[4, 0]}>
+            <Heading color="primary" p={9}>
+              In your Time:Zone
+            </Heading>
+            <Card
+              my={5}
+              sx={{
+                ":hover": { backgroundColor: "muted" },
+              }}
+            >
+              <Text m={2} fontSize={[40, 16]}>
+                <br />
+                Given time is {time} {zone}
+                <br />
+                <Text color="secondary" fontWeight="bold">
+                  Local Time will be {requiredTimeInString} {localTimeZone.zone}{" "}
+                  <br />
+                </Text>
+                <br />
+              </Text>
+            </Card>
+          </Card>
+        </Box>
+        <Box width={["", "30%"]} p={[4, 6]}>
+          <Link
+            sx={{
+              display: "inline-block",
+              fontWeight: "bold",
+              px: 2,
+              py: 1,
+              color: "inherit",
+              ":hover":{
+                color:"secondary",
+                textDecoration:"underline",
+                textDecorationColor: "primary"
+              }
+            }}
+          >
+            Built on CodeSphagetti
+          </Link>
+        </Box>
+      </Flex>
     );
   } else {
     return <div>Zone does not exist Or time could not be parsed</div>;
