@@ -1,7 +1,10 @@
 import timezones from "./timezones.json";
+import React, { useState, useEffect } from "react";
 // Time zones divided by Defined by UTC Offset
 import { useRouter } from "next/router";
-import { Box, Card, Text, Heading, Flex, Link } from "rebass";
+import { Box, Card, Text, Heading, Flex, Link, Button } from "rebass";
+import { Label, Input, Radio } from "@rebass/forms";
+import { route } from "next/dist/next-server/server/router";
 
 // Check if a 24 Hour Clock time given is valid
 function checkTime(time) {
@@ -16,7 +19,19 @@ function checkTime(time) {
 
 export default function Index() {
   const router = useRouter();
+  const [timeinput, setTime] = useState();
+  const [zoneinput, setZone] = useState();
+
   const { time, zone } = router.query; // passed in query
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (timeinput && zoneinput) {
+      router.push("/?time=" + timeinput + "&zone=" + zoneinput);
+    } else {
+      alert("Please enter Time " + timeinput + " and Zone " + zoneinput);
+    }
+  };
 
   // zone exists and the time is in correct format
   // JSX
@@ -127,7 +142,7 @@ export default function Index() {
     return (
       <Flex>
         <Box
-          height={[800, 500]}
+          height={"auto"}
           p={[4, 6]}
           sx={{
             backgroundImage: maenURL(requiredTimeInNumber),
@@ -161,27 +176,71 @@ export default function Index() {
             </Card>
           </Card>
         </Box>
-        <Box width={["", "30%"]} p={[4, 6]}>
-          <Link
-            sx={{
-              display: "inline-block",
-              fontWeight: "bold",
-              px: 2,
-              py: 1,
-              color: "inherit",
-              ":hover":{
-                color:"secondary",
-                textDecoration:"underline",
-                textDecorationColor: "primary"
-              }
-            }}
-          >
-            Built on CodeSphagetti
-          </Link>
-        </Box>
+        {screen.width < 700 ? null : (
+          <Box width={["1/3", "20%"]} p={[4, 6]}>
+            <Link
+              sx={{
+                display: "inline-block",
+                fontWeight: "bold",
+                px: 2,
+                py: 1,
+                color: "inherit",
+                ":hover": {
+                  color: "secondary",
+                  textDecoration: "underline",
+                  textDecorationColor: "primary",
+                },
+              }}
+              href={"https://twitch.tv/c0d3spaghetti"}
+            >
+              Built on C0d3Spaghetti
+            </Link>
+          </Box>
+        )}
       </Flex>
     );
   } else {
-    return <div>Zone does not exist Or time could not be parsed</div>;
+    return (
+      <Flex>
+        <Box p={3} width={[1, 1/2]} as="form">
+          <Label htmlFor="date" sx={{fontWeight: 900}}>Time in 24 Hour Format</Label>
+          <Input
+            id="time"
+            name="time"
+            type="time"
+            placeholder="hh:mm"
+            onChange={(event) => setTime(event.target.value)}
+          />
+          <br />
+          <Label htmlFor="date" sx={{fontWeight: 900}}>Select your time zone</Label>
+          <Box p={2}>
+            {timezones.map((timezone) => (
+              <Box width={[1, 1 ]}>
+                <Label>
+                  <Radio
+                    name="timezone"
+                    id={timezone.zone}
+                    key={timezone.zone}
+                    value={timezone.zone}
+                    onChange={(event) => setZone(event.target.value)}
+                  />
+                  {"UTC " +
+                    timezone.UTC +
+                    ", " +
+                    timezone.zone +
+                    ", " +
+                    timezone.areas}
+                </Label>
+              </Box>
+            ))}
+          </Box>
+          <Box px={2} ml="auto">
+            <Button variant="primary" onClick={handleClick}>
+              Submit
+            </Button>
+          </Box>
+        </Box>
+      </Flex>
+    );
   }
 }
