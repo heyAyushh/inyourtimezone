@@ -102,13 +102,13 @@ export default function Index() {
     function maenURL(number) {
       const preURL = "url(https://source.unsplash.com/1600x900/?";
 
-      if (number > 20 || number < 5) {
+      if (number >= 20 || number < 5) {
         return preURL + "night)";
-      } else if (number > 5 && number < 10) {
+      } else if (number >= 5 && number < 10) {
         return preURL + "morning)";
-      } else if (number > 10 && number < 16) {
+      } else if (number >= 10 && number < 16) {
         return preURL + "afternoon)";
-      } else if (number > 16 && number < 20) {
+      } else if (number >= 16 && number < 20) {
         return preURL + "evening)";
       } else {
         console.error("Time is not parseable");
